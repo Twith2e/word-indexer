@@ -3,7 +3,6 @@
 import ePub from "epubjs";
 import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { CiCirclePlus } from "react-icons/ci";
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
 import Image from "next/image";
 // import pdfToText from "react-pdftotext";
 
@@ -121,14 +120,10 @@ export default function BookReader() {
   const [texts, setTexts] = useState<EpubSection[]>([]);
   const [filteredTexts, setFilteredTexts] = useState<EpubSection[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedSection, setSelectedSection] = useState("All Sections");
   const [sortedWords, setSortedWords] = useState<
     Record<string, [string, number][]>
   >({});
-
-  const customSelectRef = useRef<HTMLDivElement>(null);
 
   const filterTexts = useCallback(
     (searchTerm: string) => {
