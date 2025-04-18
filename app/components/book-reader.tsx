@@ -1,7 +1,7 @@
 "use client";
 
 import ePub from "epubjs";
-import { Suspense, useEffect, useRef, useState, useCallback } from "react";
+import { Suspense, useEffect, useState, useCallback } from "react";
 import { CiCirclePlus } from "react-icons/ci";
 import Image from "next/image";
 // import pdfToText from "react-pdftotext";
