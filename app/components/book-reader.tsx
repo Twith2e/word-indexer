@@ -17,7 +17,7 @@ export type EpubSection = {
 
 export async function ePubReader(file: File): Promise<EpubSection[]> {
   const buffer = await file.arrayBuffer();
-  const book: any = ePub(buffer);
+  const book = ePub(buffer);
   await book.ready;
 
   const sections: EpubSection[] = [];
