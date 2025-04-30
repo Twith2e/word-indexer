@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-4 py-3 text-white bg-[#3F3D56]">
-      <div className="text-lg font-bold">Ase</div>
-      <div className="space-x-4">
+    <nav className="flex items-center justify-between px-10 py-5 text-white bg-[#0e0e0e]">
+      <div className="text-3xl font-bold">Ase</div>
+      <div className="space-x-4 hidden lg:flex">
         <Link href="/" className="hover:text-gray-300">
           Home
         </Link>

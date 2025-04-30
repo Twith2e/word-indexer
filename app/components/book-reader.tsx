@@ -69,14 +69,11 @@ export async function ePubReader(file: File): Promise<EpubSection[]> {
     let startIndex = ws.findIndex((word) => word === lastLabelWord);
     const firstWordIndex = ws.findIndex((word) => word === firstLabelWord);
 
-    // If first word appears after last word, find next occurrence of last word
     if (firstWordIndex > startIndex && startIndex !== -1) {
       startIndex = ws.findIndex(
         (word, index) => index > startIndex && word === lastLabelWord
       );
     }
-
-    console.log("startIndex", startIndex);
 
     sections.push({
       label: cleanedLabel,
@@ -225,7 +222,7 @@ export default function BookReader() {
   return (
     <>
       <label
-        className="bg-[#F4B400] text-white cursor-pointer flex items-center w-fit gap-2 px-3 py-2 rounded-md active:scale-104"
+        className="bg-[#0e0e0e] text-white cursor-pointer flex items-center w-fit gap-2 px-3 py-2 rounded-lg active:scale-104"
         htmlFor="book"
       >
         <CiCirclePlus className="text-2xl" />
@@ -246,7 +243,7 @@ export default function BookReader() {
             <div key={i} className="space-y-3">
               <div className="h-7 w-48 bg-gray-200 rounded animate-pulse"></div>
               <div className="h-5 w-24 bg-gray-200 rounded animate-pulse"></div>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap flex-col md:flex-row md:gap-1 gap-2">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((j) => (
                   <div
                     key={j}
@@ -258,12 +255,12 @@ export default function BookReader() {
           ))}
         </div>
       )}
-      <div className="mt-6 flex gap-4 flex-wrap">
+      <div className="mt-6 flex flex-col md:flex-row gap-2 md:gap-4 flex-wrap">
         {isLoaded &&
           texts.map((text, index) => (
             <button
               key={index}
-              className="bg-green-500 text-white px-3 py-2 rounded-md cursor-pointer"
+              className="bg-gray-400 text-[#0e0e0e] px-3 py-2 rounded-md cursor-pointer"
               onClick={() => filterTexts(text.label)}
             >
               {text.label}
@@ -312,12 +309,12 @@ export default function BookReader() {
                           </select>
                         </div>
                       </div>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap flex-col lg:flex-row gap-2 lg:gap-1 w-full">
                         {(sortedWords[section.label] || []).map(
                           ([word, count]) => (
                             <span
                               key={word}
-                              className="px-3 py-2 bg-[#ccc] rounded-md text-lg text-gray-800 flex items-center gap-2"
+                              className="px-3 py-2 bg-[#ccc] rounded-lg text-base lg:text-lg text-gray-800 flex items-center gap-2"
                             >
                               <span className="font-bold text-[#3F3D56]">
                                 {word}
